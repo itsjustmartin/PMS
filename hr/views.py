@@ -8,7 +8,6 @@ from hr.serializers import DocSerializer
 
 
 class DocViewSet(ModelViewSet):
-    queryset= doc.objects.all()
-    serializer_class = DocSerializer
     permission_classes = [IsSuperUserOrHasGroupPermission,]
-    
+    serializer_class = DocSerializer
+    queryset= doc.objects.all()

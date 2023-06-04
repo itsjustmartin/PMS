@@ -18,6 +18,7 @@ class Action(models.Model):
 
 class PositionGroup(Group):
     # name 
+    
     # permisions
     action = models.ManyToManyField(
         Action,
