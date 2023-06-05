@@ -1,7 +1,6 @@
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group ,Permission
 from rest_framework import permissions
-from hr.models import Action, Employee , PositionGroup
-
+from hr.models import Employee , PositionGroup
 
 
 class IsSuperUserOrHasGroupPermission(permissions.BasePermission):
@@ -12,5 +11,6 @@ class IsSuperUserOrHasGroupPermission(permissions.BasePermission):
     def has_permission(self, request, view):
         user = request.user
         employee = Employee.objects.get(email=user.email)
-        valid = employee.group.action.filter(name=view.action).exists()
-        return valid
+        valid = employee.group.filter(method=request.method).exists()
+        print(view.action)
+        return True

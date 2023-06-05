@@ -31,12 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'custom_auth',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'django_extensions',
     'rest_framework',
     'hr',
 ]
@@ -70,7 +73,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'PMS.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -124,4 +126,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# AUTH_USER_MODEL = 'hr.Employee'
+AUTH_USER_MODEL = 'custom_auth.User'
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
