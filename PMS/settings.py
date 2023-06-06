@@ -31,17 +31,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'custom_auth',
+    'custom_auth.apps.CustomAuthConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'django_extensions',
     'rest_framework',
-    'hr',
+    'hr.apps.HrConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,9 +127,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Defualt User For Authentication
 AUTH_USER_MODEL = 'custom_auth.User'
 
 GRAPH_MODELS = {
-  'all_applications': True,
-  'group_models': True,
+    'all_applications': True,
+    'group_models': True,
 }
